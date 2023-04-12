@@ -22,7 +22,6 @@ export default function ProductCategoriesComponent() {
 				textAlign="center"
 				sx={{
 					fontWeight: 700,
-					fontFamily: "Nerko One, cursive",
 					fontSize: "60px",
 					marginBottom: "80px",
 					textAlign: "center",
@@ -70,7 +69,6 @@ const CategoriesContainer = styled.div`
 	> h3 {
 		font-weight: 700;
 		font-size: 60px;
-		font-family: "Nerko One", cursive;
 		margin-top: 130px;
 
 		user-select: none;

@@ -22,6 +22,13 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	color: ${styles.primaryFontColor};
+	font-family: 'PT Sans', sans-serif;;
+}
+
+:root{
+    --background-input-color: #f3f3f3;
+	--primary-font-family:'PT Sans', sans-serif;
+	--primary-font-color: #2C2F83;
 }
 
 body {

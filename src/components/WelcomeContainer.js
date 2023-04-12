@@ -94,12 +94,13 @@ const WelcomeContainer = styled.div`
 	width: 80%;
 	min-width: 600px;
 	max-width: calc(60 / 100 * 1480px);
-	height: 500px;
+	height: calc(100vh - 110px);
 
 	margin: auto;
 
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
+	align-items: center;
 
 	position: relative;
 `;
@@ -117,8 +118,9 @@ const WelcomeText = styled.div`
 
 	position: absolute;
 	left: 40px;
-	top: 35px;
 
 	border-radius: 10px;
 	z-index: 10;
+
+	user-select: none;
 `;

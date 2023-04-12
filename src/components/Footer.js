@@ -5,7 +5,6 @@ import whatsappimg from "../assets/img/whatsapp.png";
 export default function Footer() {
 	const jsx = (
 		<FooterContainer>
-			<h3>Entre em contato:</h3>
 			<Socials>
 				<a
 					href="https://www.instagram.com/tiamonka/"

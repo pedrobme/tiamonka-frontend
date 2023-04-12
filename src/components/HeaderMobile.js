@@ -5,75 +5,43 @@ import logoimg from "../assets/img/tia monka logo.jfif";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import HeaderMobile from "./HeaderMobile";
 
-export default function Header() {
+export default function HeaderMobile() {
 	const jsx = (
 		<>
-			<HeaderContainer>
+			<HeaderContainer
+				borderColor={styles.primaryFontColor}
+				backgroundColor={styles.primaryBackgroundColor}
+			>
 				<HeaderWrapper>
 					<img
-						style={{ width: "125px", borderRadius: 100 }}
+						style={{ width: "100px", borderRadius: 100 }}
 						src={logoimg}
 					></img>
-					<NavigationButtons
-						borderColor={styles.primaryFontColor}
-						primaryFontFamily={styles.primaryFontFamily}
-					>
-						<Button
-							sx={{
-								height: "fit-content",
-								width: "100%",
-								fontSize: 18,
-								color: `${styles.primaryFontColor}`,
-								textTransform: "none",
-							}}
-						>
-							Pagina Inicial
-						</Button>
-						<Button
-							sx={{
-								height: "fit-content",
-								width: "100%",
-								fontSize: 18,
-								color: `${styles.primaryFontColor}`,
-								textTransform: "none",
-							}}
-						>
-							Sobre nós
-						</Button>
-						<Button
-							sx={{
-								height: "fit-content",
-								width: "100%",
-								fontSize: 18,
-								color: `${styles.primaryFontColor}`,
-								textTransform: "none",
-							}}
-						>
-							Cardápio
-						</Button>
-					</NavigationButtons>
 					<UserContainer
 						borderColor={styles.primaryFontColor}
 						primaryFontFamily={styles.primaryFontFamily}
 					>
 						<Button
 							sx={{
-								height: "fit-content",
+								fontSize: 18,
+								height: "80px",
+								fontWeight: "bold",
 								color: `${styles.primaryFontColor}`,
 								textTransform: "none",
 							}}
 						>
 							<AccountCircleRoundedIcon
 								sx={{ color: `${styles.primaryFontColor}` }}
-								fontSize="medium"
+								fontSize="large"
 							/>
-							<KeyboardArrowDownIcon fontSize="small" />
+							<KeyboardArrowDownIcon />
 						</Button>
 						<Button
 							sx={{
-								height: "fit-content",
+								fontSize: 18,
+								height: "80px",
+								fontWeight: "bold",
 								color: `${styles.primaryFontColor}`,
 								textTransform: "none",
 							}}
@@ -82,7 +50,7 @@ export default function Header() {
 								<Badge badgeContent={5} color="primary">
 									<ShoppingCartOutlinedIcon
 										sx={{ color: `${styles.primaryFontColor}` }}
-										fontSize="medium"
+										fontSize="large"
 									/>
 								</Badge>
 							</Cart>
@@ -92,8 +60,43 @@ export default function Header() {
 				<HorizontalLine
 					backgroundColor={styles.primaryFontColor}
 				></HorizontalLine>
+				<NavigationButtons
+					borderColor={styles.primaryFontColor}
+					primaryFontFamily={styles.primaryFontFamily}
+				>
+					<Button
+						sx={{
+							height: "fit-content",
+							fontSize: 18,
+							color: `${styles.primaryFontColor}`,
+							textTransform: "none",
+						}}
+					>
+						Pagina Inicial
+					</Button>
+					<Button
+						sx={{
+							height: "fit-content",
+							fontSize: 18,
+							color: `${styles.primaryFontColor}`,
+							textTransform: "none",
+						}}
+					>
+						Sobre nós
+					</Button>
+					<Button
+						sx={{
+							height: "80px",
+							fontSize: 18,
+							color: `${styles.primaryFontColor}`,
+							textTransform: "none",
+						}}
+					>
+						Cardápio
+					</Button>
+				</NavigationButtons>
 			</HeaderContainer>
-			<HeaderMobile></HeaderMobile>
+			<HeaderPhantom></HeaderPhantom>
 		</>
 	);
 
@@ -103,7 +106,7 @@ export default function Header() {
 //Styled Components
 
 const HeaderContainer = styled.div`
-	width: 80%;
+	width: 100%;
 	height: fit-content;
 
 	min-width: 600px;
@@ -114,23 +117,38 @@ const HeaderContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	position: relative;
+	background-color: ${(props) => props.backgroundColor};
+
+	border-bottom: 1px solid ${(props) => props.borderColor};
+
+	position: fixed;
 
 	margin: auto;
-	margin-top: 10px;
 
-	@media (max-width: 900px) {
+	@media (min-width: 900px) {
+		display: none;
+	}
+
+	z-index: 12;
+`;
+
+const HeaderPhantom = styled.div`
+	height: 150px;
+	@media (min-width: 900px) {
 		display: none;
 	}
 `;
-
 const HeaderWrapper = styled.div`
 	display: flex;
 
 	align-items: center;
 	justify-content: space-between;
 
-	width: 100%;
+	margin-top: 10px;
+
+	width: 90%;
+
+	padding-block: 0px;
 `;
 
 const Cart = styled.div`
@@ -150,7 +168,7 @@ const HorizontalLine = styled.div`
 	width: 100%;
 	height: 1px;
 
-	margin-block: 10px;
+	margin-top: 10px;
 
 	background-color: ${(props) => props.backgroundColor};
 `;
@@ -160,15 +178,18 @@ const NavigationButtons = styled.div`
 
 	align-items: center;
 	justify-content: space-around;
+
 	> button {
+		height: 100%;
+		width: 100%;
 		font-family: ${(props) => props.primaryFontFamily};
 		:hover {
-			border: ${(props) => `1px solid ${props.borderColor}`};
+			border-inline: ${(props) => `1px solid ${props.borderColor}`};
 		}
 	}
 
-	width: fit-content;
-	min-width: 405px;
+	width: 100%;
+	min-width: 400px;
 `;
 
 const UserContainer = styled.div`
